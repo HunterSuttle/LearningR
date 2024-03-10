@@ -1,0 +1,70 @@
+# Display output to the screen
+display <- function() {
+    print("Output to the screen.")
+}
+
+# Use different R datatypes
+datatypes <- function() {
+    num_var <- 777
+    char_var <- "basketball"
+    logical_var <- TRUE
+    numeric_vector <- c(7.7, 9.9, 2.4)
+    list_var <- list("tacos", 7, TRUE)
+    
+    print(num_var)
+    print(char_var)
+    print(logical_var)
+    print(numeric_vector)
+    print(list_var)
+}
+
+# Incorporate a loop with lists or arrays
+# This will set the total to 0 and then add each number to the total to get the sum
+calculate_sum <- function(nums) {
+    total <- 0
+    for (num in nums) {
+        total <- total + num
+    }
+    return(total)
+}
+
+# Use dataframes
+# Dataframes are essentially tables in R
+create_dataframe <- function() {
+    mydf <- data.frame(
+        Numbers = c(1, 2, 3),
+        Letters = c("a", "b", "c")
+    )
+    return(mydf)
+}
+
+# Example usage
+display()
+datatypes()
+nums <- c(10, 20, 30)
+result <- calculate_sum(nums)
+print(paste("Sum of numbers:", result))
+df <- create_dataframe()
+print(df)
+
+# Create data to be used
+my_data <- data.frame(
+  hours_studied = c(2, 3, 4, 5, 6, 7, 8, 9, 10, 11),
+  exam_score = c(60, 65, 70, 75, 80, 85, 90, 95, 100, 105)
+)
+
+# Fit the linear regression model
+model <- lm(exam_score ~ hours_studied, data = my_data)
+
+# Get summary of the model
+summary(model)
+
+# Load the ggplot2 library
+library(ggplot2)
+
+# Create a scatter plot
+ggplot(my_data, aes(x = hours_studied, y = exam_score)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Hours Studied", y = "Exam Score") +
+  theme_minimal()
